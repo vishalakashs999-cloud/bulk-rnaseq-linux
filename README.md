@@ -50,3 +50,28 @@ Linux command-line analysis, sequencing quality control, read trimming, referenc
 ## Reproducibility Notes
 
 This repository documents commands and outputs from an existing analysis. The original HISAT2 index construction and accession-to-study relationship have not yet been independently verified. Large FASTQ and BAM files are not included in the repository.
+
+
+
+## Additional Workflow Notes
+
+### Bowtie2 Reference-Filtering Experiment
+
+Bowtie2 was explored as part of RNA-seq preprocessing using an NCBI human RNA-derived reference. This was an experimental filtering step rather than a validated rRNA depletion procedure.
+
+The final documented HISAT2 alignment used the quality-trimmed FASTQ file directly, without the Bowtie2-filtered output.
+
+### Alignment Quality
+
+SAMtools flagstat analysis of `RNA_correctsorted.bam` reported:
+
+- **Primary alignment records:** 21,608,989
+- **Primary mapped records:** 20,234,890
+- **Primary mapping rate:** 93.64%
+- **Secondary alignment records:** 14,278,981
+
+These results describe alignment records for sample SRR032238 and do not independently establish unique mapping or downstream biological conclusions.
+
+### Analysis Scope
+
+This repository documents Linux-based preprocessing, alignment, and gene-level quantification of SRR032238. The relationship between SRR032238 and GSE29158 must be verified before attributing these outputs to that GEO study.
